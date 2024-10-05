@@ -25,3 +25,7 @@ RUN pip install -r /app/requirements.txt
 
 # Comando para iniciar Rasa
 CMD ["rasa", "run", "--model", "models/"]
+
+actions:
+  - action_detect_language
+
