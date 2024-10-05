@@ -15,3 +15,13 @@ EXPOSE 5005
 
 # Comando para iniciar Rasa con la API habilitada
 CMD ["rasa", "run", "--enable-api", "--cors", "*"]
+FROM rasa/rasa:latest
+
+# Copiar los archivos de tu proyecto
+COPY . /app
+
+# Instalar dependencias adicionales
+RUN pip install -r /app/requirements.txt
+
+# Comando para iniciar Rasa
+CMD ["rasa", "run", "--model", "models/"]
